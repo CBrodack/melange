@@ -1,51 +1,114 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2487.2">
-  <style type="text/css">
-    body {background-color: #000000}
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 46.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff; background-color: #b3b3b3}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 32.0px Times; color: #ffffff; -webkit-text-stroke: #0b151d; background-color: #000000}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; color: #757575; -webkit-text-stroke: #757575}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; -webkit-text-stroke: #000000; min-height: 29.0px}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 46.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff; background-color: #6a717e}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; color: #757575; -webkit-text-stroke: #757575; min-height: 29.0px}
-    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; color: #434343; -webkit-text-stroke: #434343}
-    li.li3 {margin: 0.0px 0.0px 0.0px 0.0px; color: #757575; -webkit-text-stroke: #757575}
-    span.s1 {font-kerning: none}
-    span.s2 {font-kerning: none; font-variant-ligatures: common-ligatures}
-    span.s3 {background-color: #0e0e0e; -webkit-text-stroke: 0px #000000}
-    span.s4 {font-kerning: none; background-color: #0e0e0e}
-    span.s5 {font-kerning: none; color: #757575; background-color: #0e0e0e; -webkit-text-stroke: 0px #757575}
-    span.s6 {text-decoration: underline ; font-kerning: none; color: #434343; -webkit-text-stroke: 0px #434343}
-    ol.ol1 {list-style-type: decimal}
-  </style>
-</head>
-<body>
-<p class="p1"><span class="s1">{{buttonMessage}}</span></p>
-<p class="p2"><span class="s2"><b><i>mélange</i></b></span></p>
-<ol class="ol1">
-  <li class="li3"><span class="s3"></span><span class="s4">grow</span></li>
-</ol>
-<ol class="ol1">
-  <li class="li3"><span class="s3"></span><span class="s4">sway</span></li>
-</ol>
-<ol class="ol1">
-  <li class="li3"><span class="s3"></span><span class="s4">cross</span></li>
-</ol>
-<ol class="ol1">
-  <li class="li3"><span class="s3"></span><span class="s4">unfold</span></li>
-</ol>
-<p class="p4"><span class="s4">orientation values:<span class="Apple-converted-space"> </span></span></p>
-<p class="p4"><span class="s4">{{alphaDisplay}} and {{betaDisplay}} and {{gammaDisplay}}</span></p>
-<p class="p5"><span class="s1"></span><br></p>
-<p class="p6"><span class="s1">STOP</span></p>
-<p class="p7"><span class="s1"></span><br></p>
-<p class="p8"><span class="s5">by <a href="http://www.brianellissound.com/"><span class="s6">Brian Ellis Sound</span></a></span></p>
-<p class="p5"><span class="s1"></span><br></p>
+<!DOCTYPE html>
+<html lang="en-US">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="./mypizz.js"></script>
+<title>We Grow Together</title>
+<script src="NoSleep.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+    background-color: black;
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    font-size: 26px;
+}
+
+.block {
+    display: block;
+    width: 100%;
+    border: none;
+    color: white;
+    padding: 14px 28px;
+    font-size: 46px;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    max-width: 600px;
+}
+
+a {
+    color: #555555;
+}
+
+.center {
+    text-align: center;
+    list-style-position: inside;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    color: #888888;
+}
+
+.content {
+    margin: auto;
+    max-width: 600px;
+    padding: 10px;
+    background-color: #111111;
+    border-color: #888888;
+    border-width: medium;
+    border-style: solid;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+</style>
+
+<body style="font-family: 'Lato', sans-serif;">
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <div class="row">
+            <div class="content">
+                <center>
+                    <button ng-click="onClickMe()" class="block" style="background-color: {{bgcolor}}">{{buttonMessage}}</button>
+                </center>
+                <div class="column">
+                    <ol>
+                        <li>grow</li>
+                        <li>sway</li>
+                        <li>cross</li>
+                        <li>unfold</li>
+                    </ol>
+                </div>
+                <center>
+                    <div class="column">
+                        orientation values:
+                        <br>
+                        {{alphaDisplay}} and {{betaDisplay}} and {{gammaDisplay}}
+                    </div>
+                    <br>
+                    <button ng-click="stopMusic()" class="block" style="background-color:#7D8491;">STOP</button>
+                    <div class="row">
+                        <div class="column">
+                        </div>
+                        <div class="column">
+                            by <a href="http://www.brianellissound.com" target="_blank">Brian Ellis Sound</a>
+                        </div>
+                    </div>
+                    <br>
+                </center>
+            </div>
+        </div>
+    </div>
 </body>
+<script src="home.js"></script>
+
 </html>
